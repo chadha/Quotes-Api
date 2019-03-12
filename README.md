@@ -4,7 +4,7 @@ Build a REST API with Symfony && FOSRestBundle
 * [x] Deserialization
 * [ ] Paginate a list of resources
 * [x] Validate resources
-* [ ]content negotiation
+* [ ] content negotiation
 * [ ] Error Management
 * [ ] Error handling via a listener on the event kernel.exception
 * [ ] Api Documentation
