@@ -1,0 +1,10 @@
+"The rule is, 'Do the simplest thing that could possibly work', not
+the most stupid.";Chet Hendrickson
+"Any fool can write code that a computer can understand. Good
+programmers write code that humans can understand.";Martin Fowler
+_ A class should have only one reason to change.;_Robert C. Martin
+"_software entities (classes, modules, functions, etc.) should be open for extension,
+but closed for modifcation";Wikipedia
+"_objects in a program should be replaceable with instances of their subtypes
+without altering the correctness of that program";Wikipedia
+_One should depend upon abstractions. Do not depend upon concretions.;Wikipedia
