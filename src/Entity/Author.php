@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AuthorRepository")
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 class Author
 {
@@ -15,20 +16,17 @@ class Author
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * @Serializer\Expose()
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Serializer\Expose()
      */
     private $fullName;
-
-
-/*    public function __construct($fullName , $quotes)
-    {
-        $this->fullName = $fullName;
-        $this->quotes = $quotes;
-    }*/
 
 
     public function getId(): ?int
@@ -48,4 +46,8 @@ class Author
         return $this;
     }
 
+    public function __toString()
+    {
+        return (string) $this->getFullName();
+    }
 }

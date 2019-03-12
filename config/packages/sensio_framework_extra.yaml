@@ -1,0 +1,7 @@
+sensio_framework_extra:
+    request: { converters: true }
+    router:
+        annotations: true
+
+#    serializer:
+#        enabled: true
