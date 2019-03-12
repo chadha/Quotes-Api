@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\QuoteRepository")
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 class Quote
 {
@@ -13,11 +17,16 @@ class Quote
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * @Serializer\Expose()
      */
     private $id;
 
     /**
      * @ORM\Column(type="text")
+     *
+     * @Serializer\Expose()
+     * @Assert\NotBlank(groups={"Create"})
      */
     private $text;
 
@@ -26,6 +35,8 @@ class Quote
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Author")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * @Serializer\Expose()
      */
     private $author;
 
@@ -33,12 +44,6 @@ class Quote
     {
         return $this->id;
     }
-
-/*    public function __construct($text, $author)
-    {
-        $this->text = $text;
-        $this->author = $author;
-    }*/
 
     public function getText(): ?string
     {
